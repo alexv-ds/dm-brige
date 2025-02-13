@@ -21,5 +21,9 @@
       ]
     }
   },
-  "remoteUser": "vscode"
+  "remoteUser": "vscode",
+  "remoteEnv": {
+    "CPM_SOURCE_CACHE" : "${containerWorkspaceFolder}/.cpm-cache",
+    "CPM_USE_NAMED_CACHE_DIRECTORIES" : "ON"
+  }
 }
