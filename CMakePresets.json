@@ -1,0 +1,64 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 31,
+    "patch": 5
+  },
+  "configurePresets": [
+    {
+      "name" : "devcontainer-base",
+      "description": "VSCode devcontainer preset",
+      "generator" : "Ninja",
+      "hidden" : true,
+      "cacheVariables": {
+        "CMAKE_C_COMPILER" : "/usr/bin/gcc",
+        "CMAKE_CXX_COMPILER" : "/usr/bin/g++"
+      }
+    },
+    {
+      "name" : "devcontainer-debug",
+      "inherits" : "devcontainer-base",
+      "displayName": "Debug",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE" : "Debug"
+      }
+    },
+    {
+      "name" : "devcontainer-release",
+      "inherits" : "devcontainer-base",
+      "displayName": "Release",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE" : "Release"
+      }
+    },
+    {
+      "name" : "devcontainer-relwithdebinfo",
+      "inherits" : "devcontainer-base",
+      "displayName": "RelWithDebInfo",
+      "binaryDir": "${sourceDir}/build/relwithdebinfo",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE" : "RelWithDebInfo"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "devcontainer-debug",
+      "displayName": "default",
+      "configurePreset": "devcontainer-debug"
+    },
+    {
+      "name": "devcontainer-release",
+      "displayName": "default",
+      "configurePreset": "devcontainer-release"
+    },
+    {
+      "name": "devcontainer-relwithdebinfo",
+      "displayName": "default",
+      "configurePreset": "devcontainer-relwithdebinfo"
+    }
+  ]
+}

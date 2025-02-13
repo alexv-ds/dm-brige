@@ -1,0 +1,25 @@
+{
+  "name": "dm-brige-dev",
+  "build": {
+    "dockerfile": "./Dockerfile"
+  },
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jeff-hykin.better-cpp-syntax",
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cpptools-themes",
+        "josetr.cmake-language-support-vscode",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake"
+      ]
+    }
+  },
+  "remoteUser": "vscode"
+}
