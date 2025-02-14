@@ -17,4 +17,10 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 include("cmake/cpm-dependencies.cmake")
 
-add_executable(main src/main.cpp)
+add_executable(main
+  src/main.cpp
+  src/RpcCall.cpp
+  src/RpcCall.hpp
+)
+target_compile_options(main PRIVATE "-Wall" "-Wextra" "-pedantic")
+target_link_libraries(main PRIVATE Boost::json Boost::asio Boost::beast)
